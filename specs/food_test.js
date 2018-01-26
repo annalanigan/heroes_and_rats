@@ -16,6 +16,11 @@ describe('Food test', function(){
     assert.strictEqual(food2.replenish, 5);
   })
 
-  
+  it('should be able to increase replenish', function(){
+    food1.upReplenish(1.5);
+    assert.strictEqual(food1.replenish, 15);
+  })
+
+
 
 })

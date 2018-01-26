@@ -5,4 +5,8 @@ const Food = function(name, replenish){
   this.replenish = replenish;
 }
 
+Food.prototype.upReplenish = function (num) {
+  this.replenish = this.replenish * num;
+};
+
 module.exports = Food;
