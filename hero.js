@@ -7,4 +7,8 @@ const Hero = function(name, favFood){
   this.tasks = [];
 }
 
+Hero.prototype.talk = function () {
+  return `I am ${this.name}`;
+};
+
 module.exports = Hero;

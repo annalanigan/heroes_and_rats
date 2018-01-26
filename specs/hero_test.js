@@ -20,5 +20,8 @@ describe('hero test', function(){
     assert.strictEqual(hero1.tasks.length, 0);
   })
 
+  it('should be able to talk', function(){
+    assert.strictEqual(hero1.talk(), "I am Dylan")
+  })
 
 })
