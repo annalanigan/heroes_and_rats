@@ -6,6 +6,7 @@ const Task = function(difficulty, urgency, reward){
   this.reward = reward;
   this.completed = false;
 }
+
 Task.prototype.complete = function () {
   this.completed = true;
 };
