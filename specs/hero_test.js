@@ -1,13 +1,12 @@
 const assert = require('assert');
 const Hero = require('../hero.js');
 
-
 describe('hero test', function(){
 
   var hero1;
 
   beforeEach(function(){
-    hero1 = new Hero('Dylan', 'Chocolate')
+    hero1 = new Hero('Dylan', 'Chocolate');
   })
 
   it('should have a name and favourite food', function(){
