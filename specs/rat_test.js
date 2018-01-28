@@ -6,12 +6,10 @@ describe('Rat test', function(){
 
   var rat1;
   var food1;
-  var food2;
 
   beforeEach(function(){
     rat1 = new Rat();
     food1 = new Food("Chocolate", 10);
-    food2 = new Food("Sprouts", 5);
   })
 
   it('can touch food', function(){

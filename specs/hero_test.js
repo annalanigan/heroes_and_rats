@@ -20,9 +20,9 @@ describe('hero test', function(){
   beforeEach(function(){
     hero1 = new Hero('Dylan', 'Chocolate');
     food1 = new Food('Chocolate', 10);
-    food2 = new Food("Sprouts", 5);
-    food3 = new Food("Crisps", 7);
-    food4 = new Food("Water", 1);
+    food2 = new Food('Sprouts', 5);
+    food3 = new Food('Crisps', 7);
+    food4 = new Food('Water', 1);
     task1 = new Task(5, 7, food1);
     task2 = new Task(3, 10, food2);
     task3 = new Task(7, 2, food3);
@@ -43,7 +43,7 @@ describe('hero test', function(){
   })
 
   it('should be able to talk', function(){
-    assert.strictEqual(hero1.talk(), "I am Dylan")
+    assert.strictEqual(hero1.talk(), 'I am Dylan')
   })
 
   it('should be able to eat', function(){

@@ -21,6 +21,4 @@ describe('Food test', function(){
     assert.strictEqual(food1.replenish, 15);
   })
 
-
-
 })
