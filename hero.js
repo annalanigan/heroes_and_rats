@@ -27,16 +27,34 @@ Hero.prototype.addTask = function (task) {
   this.tasks.push(task);
 };
 
-Hero.prototype.sortTaskDifficultyAsc = function(){
-  return this.tasks.sort(function(first, second){
-    return first.difficulty - second.difficulty;
-  })
+Hero.prototype.setupSortFunction = function (sortByType) {
+  return function(first, second){
+    switch (sortByType) {
+      case 'difficulty' :
+        return first.difficulty - second.difficulty;
+        break;
+      case 'urgency' :
+        return first.urgency - second.urgency;
+        break;
+      case 'reward' :
+        return first.reward.replenish - second.reward.replenish;
+        break;
+    }
+  }
+};
+
+Hero.prototype.sortTasks = function (type) {
+  return this.tasks.sort(this.setupSortFunction(type))
+};
+
+Hero.prototype.completedTasks = function(){
+  return this.tasks.filter(item => item.completed === true);
 }
 
-Hero.prototype.sortTaskDifficultyDsc = function(){
-  return this.tasks.sort(function(first, second){
-    return second.difficulty - first.difficulty;
-  })
+Hero.prototype.incompletedTasks = function(){
+  return this.tasks.filter(item => item.completed === false)
 }
+
+
 
 module.exports = Hero;

@@ -24,7 +24,9 @@ describe('hero test', function(){
     task1 = new Task(5, 7, food1);
     task2 = new Task(3, 10, food2);
     task3 = new Task(7, 2, food3);
+    task3.complete();
     task4 = new Task(1, 5, food4);
+    task4.complete();
   })
 
   it('should have a name and favourite food', function(){
@@ -66,19 +68,45 @@ describe('hero test', function(){
     hero1.addTask(task2);
     hero1.addTask(task3);
     hero1.addTask(task4);
-    hero1.sortTaskDifficultyAsc();
+    hero1.sortTasks('difficulty');
     assert.strictEqual(hero1.tasks[0], task4);
     assert.strictEqual(hero1.tasks[3], task3);
   })
 
-  it('can sort tasks by difficulty Descending', function(){
+  it('can sort tasks by urgency Ascending', function(){
     hero1.addTask(task1);
     hero1.addTask(task2);
     hero1.addTask(task3);
     hero1.addTask(task4);
-    hero1.sortTaskDifficultyDsc();
-    assert.strictEqual(hero1.tasks[3], task4);
+    hero1.sortTasks('urgency');
     assert.strictEqual(hero1.tasks[0], task3);
+    assert.strictEqual(hero1.tasks[3], task2);
+  })
+
+  it('can sort tasks by reward Ascending', function(){
+    hero1.addTask(task1);
+    hero1.addTask(task2);
+    hero1.addTask(task3);
+    hero1.addTask(task4);
+    hero1.sortTasks('reward');
+    assert.strictEqual(hero1.tasks[0], task4);
+    assert.strictEqual(hero1.tasks[3], task1);
+  })
+
+  it('should be able to get not completed tasks', function(){
+    hero1.addTask(task1);
+    hero1.addTask(task2);
+    hero1.addTask(task3);
+    hero1.addTask(task4);
+    assert.strictEqual(hero1.incompletedTasks().length, 2);
+  })
+
+  it('should be able to get completed tasks', function(){
+    hero1.addTask(task1);
+    hero1.addTask(task2);
+    hero1.addTask(task3);
+    hero1.addTask(task4);
+    assert.strictEqual(hero1.completedTasks().length, 2);
   })
 
 })
