@@ -1,5 +1,3 @@
-var _ = require('lodash');
-
 const Hero = function(name, favFood){
   this.name = name;
   this.favFood = favFood;
@@ -15,11 +13,19 @@ Hero.prototype.isFavFood = function (food) {
   return food.name === this.favFood ? true : false;
 };
 
-Hero.prototype.eat = function (food) {
+Hero.prototype.eatGoodFood = function (food) {
   if (this.isFavFood(food)){
     this.health += (food.replenish * 1.5);
   } else {
     this.health += food.replenish;
+  }
+};
+
+Hero.prototype.eat = function (food) {
+  if (food.poison){
+    this.health -= food.replenish;
+  } else {
+    this.eatGoodFood(food);
   }
 };
 
@@ -54,7 +60,5 @@ Hero.prototype.completedTasks = function(){
 Hero.prototype.incompletedTasks = function(){
   return this.tasks.filter(item => item.completed === false)
 }
-
-
 
 module.exports = Hero;
